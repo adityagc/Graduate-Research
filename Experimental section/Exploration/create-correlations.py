@@ -2,7 +2,7 @@
 # -*- coding: utf-8 -*-
 """
 Created on Tue Dec 11 18:20:37 2018
-
+Generate correlation plots
 @author: adityagc
 """
 import pandas as pd
