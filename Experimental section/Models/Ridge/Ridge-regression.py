@@ -26,7 +26,7 @@ with open(inpath,'rb') as f:
     data = df.values
     X = data[:,0:-1]
     Y = data[:,16]
-    alphas = [0.001, 0.01, 0.02, 0.05, 0.1, 0.2, 0.5, 1]
+    alphas = [0.001, 0.01, 0.02, 0.05, 0.1, 0.2, 0.5, 1, 10, 100, 1000]
     wts = []
     mse_out = []
     for alpha in alphas:
@@ -34,9 +34,11 @@ with open(inpath,'rb') as f:
         weights_arr = []
         for i in range(num_cv):
             X_train, X_test, Y_train, Y_test = model_selection.train_test_split(X, Y, test_size=0.25)
+            X_trn_scaled = preprocessing.scale(X_train)
+            X_tst_scaled = preprocessing.scale(X_test)
             regr = lm.Ridge(alpha=alpha)
-            regr.fit(X_train, Y_train)
-            Y_pred = regr.predict(X_test)
+            regr.fit(X_trn_scaled, Y_train)
+            Y_pred = regr.predict(X_tst_scaled)
             mse = ms.mean_squared_error(Y_test, Y_pred)
             weights = np.append(np.asarray(regr.coef_), regr.intercept_)
             mse_arr.append(mse)
