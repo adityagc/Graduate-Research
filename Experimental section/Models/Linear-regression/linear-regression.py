@@ -7,10 +7,11 @@ Generate weights for linear regression
 """
 import pandas as pd
 import os
+import time
 import numpy as np
 import matplotlib.pyplot as plt
 from sklearn import preprocessing, model_selection, linear_model as lm, metrics as ms
-
+t0 = time.time()
 #File path management
 cwd = os.getcwd()
 rel_inpath = os.path.join(cwd, './Datasets/dataframe_raw.csv')
@@ -43,3 +44,5 @@ with open(inpath,'rb') as f:
     with open(outpath, 'w') as f1:
         f1.write('MSE: '+str(mean_mse)+'\n')
         f1.write('Weights: '+str(mean_weights))
+t1 = time.time()
+print(t1-t0)

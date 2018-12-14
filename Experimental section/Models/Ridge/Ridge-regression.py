@@ -10,7 +10,7 @@ import os
 import numpy as np
 import matplotlib.pyplot as plt
 from sklearn import preprocessing, model_selection, linear_model as lm, metrics as ms
-
+import time
 #File path management
 cwd = os.getcwd()
 rel_inpath = os.path.join(cwd, './Datasets/dataframe_raw.csv')
@@ -20,6 +20,7 @@ outpath = os.path.normpath(rel_outpath)
 #Number of cross-validations:
 num_cv = 4
 #Linear model
+t0 = time.time()
 with open(inpath,'rb') as f:
     df = pd.read_csv(f)
     del df['Unnamed: 0']
@@ -49,10 +50,12 @@ with open(inpath,'rb') as f:
         wts.append(list(mean_weights))
         mse_out.append(mean_mse)
     wts_out = np.asarray(wts).T
-    with open(outpath, 'w') as f1:
-        f1.write('Alphas: '+'\n')
-        f1.write( str(alphas) + '\n')
-        f1.write('Weights \n')
-        np.savetxt(f1, wts_out)
-        f1.write('MSE \n')
-        f1.write(str(mse_out))
+t1 = time.time()
+print(t1-t0)
+    # with open(outpath, 'w') as f1:
+    #     f1.write('Alphas: '+'\n')
+    #     f1.write( str(alphas) + '\n')
+    #     f1.write('Weights \n')
+    #     np.savetxt(f1, wts_out)
+    #     f1.write('MSE \n')
+    #     f1.write(str(mse_out))

@@ -4,9 +4,11 @@ rm(list=ls())
 library(grpreg)
 library(caret)
 library(ggplot2)
+t0 = proc.time()
 data(Birthwt)
 # Predictors: age   age   age   lwt   lwt   lwt   race  race  smoke ptl   ptl   ht    ui    ftv  ftv   ftv  
 # Levels: age lwt race smoke ptl ht ui ftv
+
 titles <- Birthwt
 X <- Birthwt$X
 Y <- Birthwt$bwt
@@ -24,5 +26,7 @@ errors <- summ$cve
 weights <- Y_fit$fit$beta
 # write.csv(weights, file = "~/Desktop/MS-Research/Experiments/LowBirthWeight/large-lbw/R/weights.csv")
 out <- rbind(weights, errors)
+t1 = proc.time()
+time = t1-t0
 write.csv(out, file = "./out.csv")
 out
