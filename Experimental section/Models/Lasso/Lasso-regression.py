@@ -26,7 +26,7 @@ with open(inpath,'rb') as f:
     data = df.values
     X = data[:,0:-1]
     Y = data[:,16]
-    alphas = [0.001, 0.01, 0.05,0.1, 0.5, 1,]
+    alphas = [0.0001,0.001, 0.01, 0.05,0.1, 0.5, 1]
     wts = []
     mse_out = []
     for alpha in alphas:

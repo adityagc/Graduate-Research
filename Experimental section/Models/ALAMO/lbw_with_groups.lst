@@ -366,7 +366,7 @@ BASES considered
  User provided an initial data set of 189 data points
  We will sample no more data points at this stage
  ***************************************************************************
- Iteration 1 (Approx. elapsed time 0.42E-01 s)
+ Iteration 1 (Approx. elapsed time 0.39E-01 s)
  
  Step 1: Model building using MSE
  
@@ -610,12 +610,12 @@ BASES considered
    2.99443242346888      1.00
  
  
- Total execution time 0.30 s
+ Total execution time 0.25 s
  Times breakdown
-     OLR time:        0.26E-02 s in 64 ordinary linear regression problem(s)
+     OLR time:        0.32E-02 s in 64 ordinary linear regression problem(s)
      MIP time:        0.0 s in 0 quadratic integer problem(s)
      Simulation time: 0.0 s to simulate 0 point(s)
-     All other time:  0.29 s in 1 iteration(s)
+     All other time:  0.25 s in 1 iteration(s)
  
  Normal termination
  ***************************************************************************
