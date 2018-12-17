@@ -52,10 +52,10 @@ with open(inpath,'rb') as f:
     wts_out = np.asarray(wts).T
 t1 = time.time()
 print(t1-t0)
-    # with open(outpath, 'w') as f1:
-    #     f1.write('Alphas: '+'\n')
-    #     f1.write( str(alphas) + '\n')
-    #     f1.write('Weights \n')
-    #     np.savetxt(f1, wts_out)
-    #     f1.write('MSE \n')
-    #     f1.write(str(mse_out))
+    with open(outpath, 'w') as f1:
+        f1.write('Alphas: '+'\n')
+        f1.write( str(alphas) + '\n')
+        f1.write('Weights \n')
+        np.savetxt(f1, wts_out)
+        f1.write('MSE \n')
+        f1.write(str(mse_out))
